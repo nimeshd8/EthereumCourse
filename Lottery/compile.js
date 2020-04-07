@@ -1,0 +1,12 @@
+//This is created as for cross platform windows and linux both.
+
+const path = require('path');
+const fs = require('fs');
+const solc = require('solc');
+
+const lotteryPath = path.resolve(__dirname, 'contracts', 'Lottery.sol');
+const source = fs.readFileSync(lotteryPath, 'utf8');
+
+module.exports = solc.compile(source).contracts[':Lottery'];
+
+//console.log(solc.compile(source).contracts[':Lottery']);
